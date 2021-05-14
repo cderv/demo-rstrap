@@ -33,11 +33,8 @@ jobs:
       - name: Render site
         run: make all
 
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
-          target_branch: gh-pages
-          build_dir: _site
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: _site # The folder the action should deploy.
