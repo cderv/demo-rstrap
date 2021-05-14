@@ -6,3 +6,8 @@ navbar:
       href: index.html
     - text: "Example"
       href: rstrap.html
+    - text: "Reference doc"
+      href: boostrap.html
+exclude:
+  - Makefile
+  - renv.lock
