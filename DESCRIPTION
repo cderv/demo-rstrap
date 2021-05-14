@@ -19,3 +19,4 @@ Imports:
     bslib,
     jquerylib,
     rmarkdown
+Remote: rstudio/rmarkdown@rstrap
