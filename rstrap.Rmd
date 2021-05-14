@@ -1,11 +1,13 @@
 ---
-title: "Example using rstrap"
+title: "Example using `r params$title`"
 output: 
   html_document:
     code_download: true
     code_folding: hide
     toc: true
     toc_float: true
+params:
+  title: rstrap
 ---
 
 ```{r setup, include=FALSE}
