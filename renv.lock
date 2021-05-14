@@ -57,6 +57,19 @@
       "Repository": "CRAN",
       "Hash": "af2c2531e55df5cf230c4b5444fc973c"
     },
+    "jquerylib": {
+      "Package": "jquerylib",
+      "Version": "0.1.4",
+      "Source": "CRAN",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "jquerylib",
+      "RemoteRef": "jquerylib",
+      "RemoteRepos": "https://cran.rstudio.com/",
+      "RemotePkgType": "windows",
+      "RemoteSha": "0.1.4",
+      "Hash": "5aab57a3bd297eee1c1d862735972182"
+    },
     "jsonlite": {
       "Package": "jsonlite",
       "Version": "1.7.2",

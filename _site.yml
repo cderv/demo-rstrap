@@ -11,3 +11,4 @@ navbar:
 exclude:
   - Makefile
   - renv.lock
+  - dependencies.R
