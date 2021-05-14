@@ -12,3 +12,7 @@ exclude:
   - Makefile
   - renv.lock
   - dependencies.R
+  - README.md
+  - LICENSE.md
+  - LICENSE
+  - DESCRIPTION
