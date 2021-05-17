@@ -12,50 +12,155 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+rstrap_mode <- function() identical(params$title, "rstrap")
 ```
 
-# About R Markdown
+# About R Markdown and Bootstrap
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+R Markdown document uses Bootstrap by default to enable some features (tabs, navbar, ...) and allow easy theming. These requires Bootstrap because they use some of its default component i.e Buttons, Dropdown, Navbar, Navs, ...
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+In this document, we add basic component (text, table, plot) and we use the Bootstrap dependents features to show how it will render when rstrap mode is activated.
 
-```{r cars}
-summary(cars)
+```{css, echo = FALSE, eval = isFALSE(rstrap_mode())}
+div.alert > p:last-child {
+    margin-bottom: 0;
+}
+
+div.alert + p {
+  text-align: right;
+}
 ```
+
+
+```{asis, bootstrap_alert, echo = isFALSE(rstrap_mode())}
+::: {.alert .alert-success role="alert"}
+[]{.glyphicon .glyphicon-info-sign} This documents is using Bootstrap dependency and not rstrap. This is why the default theming is a bit difference. See Browser inspector to check for dependencies in HTML's `<head>`
+:::
+
+<small>[]{.glyphicon .glyphicon-arrow-up} and that is why this alert box and icons are showing.</small>
+```
+
+YAML header is this document is 
+
+```yaml
+output: 
+  html_document:
+    code_download: true
+    code_folding: hide
+    toc: true
+    toc_float: true
+```
+
+No need to change the output format field to opt-in to rstrap - it is done automatically depending on opt-in condition. See [Home page](index.html)
+
+## Navbar
+
+This website is built with R Markdown website generator and the navbar is the one used with rstrap mode. 
+
+## Code Folding
+
+This document uses `code_folding: hide` in YAML header. 
+
+## Table of content
+
+This document uses
+
+```yaml
+toc: true
+toc_float: true
+```
+
+to add a TOC in the document
+
+## Code download button
+
+This document source code is embedded in the HTML page and available using the Code Download button. `code_download: true` has been set in YAML header.
+
+# Including a table
+
+```{r gt_head}
+library(palmerpenguins)
+library(gt)
+
+penguins %>% 
+  head(10) %>%
+  gt() %>%
+  tab_header(md("Head (10 rows) of _penguins_ dataset from **palmerpenguins**")) %>%
+  tab_source_note(md("datasource: **palmerpinguins** R package."))
+```
+
 
 ## Including Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r mass_flipper, fig.alt = "Penguin mass vs. flipper length", message=FALSE, warning=FALSE}
+library(ggplot2)
+mass_flipper <- ggplot(data = penguins,
+                       aes(x = flipper_length_mm,
+                           y = body_mass_g)) +
+  geom_point(aes(color = species,
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Penguin size, Palmer Station LTER",
+       subtitle = "Flipper length and body mass for Adelie, Chinstrap and Gentoo Penguins",
+       x = "Flipper length (mm)",
+       y = "Body mass (g)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme(legend.position = c(0.2, 0.7),
+        legend.background = element_rect(fill = "white", color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+mass_flipper
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Examples with tabs {.tabset}
 
-## Some tabs {.tabset}
+### Plot
 
-### Tab 1
+```{r mass_flipper, opts.label = TRUE, echo = FALSE}
+```
 
-Content 1
+### Table
 
-### Tab 2
+```{r gt_head, echo = FALSE}
+```
 
-Content 2
 
 ## Other features 
 
-### Some math
+### Math
+
+Math does not depend on Bootstrap and still works.
 
 $$
 z = x/y + \alpha
 $$
 
-## Some rstrap feature still available for Bootstrap
+## Some rstrap feature still available from Bootstrap
 
-### Buttons 
+With default rmarkdown document, Bootstrap special components can be defined directly as HTML. This is not available with rstrap mode in a lightweight version
+
+### Example with Buttons
+
+This will work in both modes
 
 ```{r, echo = FALSE}
 htmltools::tags$button(type = "button", class = "btn btn-primary", "Primary")
 ```
+
+### Example with Alert
+
+This will `r if(rstrap_mode()) "not"` work. 
+
+```{r, echo = FALSE}
+htmltools::div(class = "alert alert-primary", role = "alert", 
+               "This is a primarty alert box and should be highlighted as such")
+```
+

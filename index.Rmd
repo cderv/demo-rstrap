@@ -1,5 +1,69 @@
 ---
-title: "My Website"
+title: "Demo of rstrap mode in R Markdown"
 ---
 
-This website is a showcase on how it would look like with rstrap
+# About this website
+
+This website is a showcase on how it would look like using **rstrap mode**
+
+# What is rstrap ? 
+
+`rstrap` is a forked of Bootstrap specially built to be used with **rmarkdown** with minimal default features, and redistributed under a new distribution name.
+
+Obviously, using `rstrap` will not enable all features of R Markdown but it can be useful for some users to have this special distribution.
+
+In most case this is not to be used. You would need this only when
+
+* You can't use Bootstrap own distribution for any reason, 
+* You need more from just deactivating Bootstrap usage in **rmarkdown** by setting `theme = NULL` or `template = NULL` is [`html_document()`](https://rmarkdown.rstudio.com/docs/reference/html_document.html)
+* You would then be able to use a fork of Bootstrap maintained and provided by RStudio PBC.
+
+If you wandered the web and came across this page instead of being pointed to it, then it means you probably don't need this. 
+
+## How rstrap is built ?
+
+[Bootstrap](https://github.com/twbs/bootstrap) is MIT licence. This allows us to build our own fork. From Bootstrap sources, we build a special CSS and JS that we rename `rstrap` and that we provide as HTML dependency in **rmarkdown** R package.
+
+Currently, `rstrap` is built from Bootstrap 4. Current prototype work: 
+
+* Special format `rstrap_document()`: https://github.com/rstudio/rsformat
+* Integration in rmarkdown: https://github.com/rstudio/rmarkdown/tree/rstrap
+
+## How to use rstrap ? 
+
+`rstrap` will be used when **rmarkdown** opt-in what we called _rstrap\_mode_. This will happen on two conditions: 
+
+```{r, echo = FALSE, include = FALSE}
+rmd_fold <- glue::glue("`<lib-path>/rmarkdown/{folder}`",
+           folder = 
+             fs::path_rel(
+               fs::path_package("rmd", "h", "bootstrap", package = "rmarkdown"),
+               fs::path_package(package = "rmarkdown")
+             )
+)
+```
+
+* `bootstrap` dependency folder inside **rmarkdown** package installed on a system is not present - we mean this folder `r rmd_fold`
+
+* `rmarkdown.rstrap` is set to `TRUE` - this is useful for tests and demo (like this website)
+
+
+# Limitations
+
+## Theming is deactivated
+
+All theming behavior from R Markdown will be deactivated. Theming mainly use Bootswatch themes which are not including into `rstrap`. 
+
+This means than `theme` argument in `html_document()` has been deactivated. A warning will be thrown once by R session: 
+
+```{r rstrap-theme-warning, echo = FALSE}
+tmp <- tempfile()
+dummy <- callr::r(function() rmarkdown:::resolve_theme("cerulean"), stderr = tmp)
+xfun::file_string(tmp)
+unlink(tmp)
+```
+
+
+## Other R Markdown format
+
+_rstrap\_mode_ is aimed to be used with `html_document()` only. This can't be used with other output formats. 

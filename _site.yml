@@ -2,11 +2,11 @@ name: "my-website"
 navbar:
   title: "My Website"
   left:
-    - text: "Home"
+    - text: "About this demo website"
       href: index.html
-    - text: "Example"
+    - text: "Example in rstrap mode"
       href: rstrap.html
-    - text: "Reference doc"
+    - text: "Using Bootstrap directly"
       href: boostrap.html
 exclude:
   - Makefile
