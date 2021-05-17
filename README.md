@@ -2,6 +2,7 @@
 # demo-rstrap
 
 <!-- badges: start -->
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)"
 <!-- badges: end -->
 
 This repo contains an example site to see how rendering using `rstrap` instead of `bootstrap` looks like.
