@@ -3,7 +3,9 @@ all: build
 build: build_site build_one
 
 build_site: index.Rmd rstrap.Rmd
+	mv LICENSE.md _LICENSE.md
 	Rscript -e 'rmarkdown::render_site()'
+	mv _LICENSE.md LICENSE.md
 
 build_one: rstrap.Rmd
 	Rscript \
