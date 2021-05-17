@@ -11,7 +11,7 @@
 
 
 
-<title>My Website</title>
+<title>Demo of rstrap mode in R Markdown</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="site_libs/rstrap-1.1.0/rstrap.css" rel="stylesheet" />
@@ -229,13 +229,13 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">About this demo website</a>
 </li>
 <li>
-  <a href="rstrap.html">Example</a>
+  <a href="rstrap.html">Example in rstrap mode</a>
 </li>
 <li>
-  <a href="boostrap.html">Reference doc</a>
+  <a href="boostrap.html">Using Bootstrap directly</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -249,12 +249,59 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">My Website</h1>
+<h1 class="title toc-ignore">Demo of rstrap mode in R Markdown</h1>
 
 </div>
 
 
-<p>This website is a showcase on how it would look like with rstrap</p>
+<div id="about-this-website" class="section level1">
+<h1>About this website</h1>
+<p>This website is a showcase on how it would look like using <strong>rstrap mode</strong></p>
+</div>
+<div id="what-is-rstrap" class="section level1">
+<h1>What is rstrap ?</h1>
+<p><code>rstrap</code> is a forked of Bootstrap specially built to be used with <strong>rmarkdown</strong> with minimal default features, and redistributed under a new distribution name.</p>
+<p>Obviously, using <code>rstrap</code> will not enable all features of R Markdown but it can be useful for some users to have this special distribution.</p>
+<p>In most case this is not to be used. You would need this only when</p>
+<ul>
+<li>You can’t use Bootstrap own distribution for any reason,</li>
+<li>You need more from just deactivating Bootstrap usage in <strong>rmarkdown</strong> by setting <code>theme = NULL</code> or <code>template = NULL</code> is <a href="https://rmarkdown.rstudio.com/docs/reference/html_document.html"><code>html_document()</code></a></li>
+<li>You would then be able to use a fork of Bootstrap maintained and provided by RStudio PBC.</li>
+</ul>
+<p>If you wandered the web and came across this page instead of being pointed to it, then it means you probably don’t need this.</p>
+<div id="how-rstrap-is-built" class="section level2">
+<h2>How rstrap is built ?</h2>
+<p><a href="https://github.com/twbs/bootstrap">Bootstrap</a> is MIT licence. This allows us to build our own fork. From Bootstrap sources, we build a special CSS and JS that we rename <code>rstrap</code> and that we provide as HTML dependency in <strong>rmarkdown</strong> R package.</p>
+<p>Currently, <code>rstrap</code> is built from Bootstrap 4. Current prototype work:</p>
+<ul>
+<li>Special format <code>rstrap_document()</code>: <a href="https://github.com/rstudio/rsformat" class="uri">https://github.com/rstudio/rsformat</a></li>
+<li>Integration in rmarkdown: <a href="https://github.com/rstudio/rmarkdown/tree/rstrap" class="uri">https://github.com/rstudio/rmarkdown/tree/rstrap</a></li>
+</ul>
+</div>
+<div id="how-to-use-rstrap" class="section level2">
+<h2>How to use rstrap ?</h2>
+<p><code>rstrap</code> will be used when <strong>rmarkdown</strong> opt-in what we called <em>rstrap_mode</em>. This will happen on two conditions:</p>
+<ul>
+<li><p><code>bootstrap</code> dependency folder inside <strong>rmarkdown</strong> package installed on a system is not present - we mean this folder <code>&lt;lib-path&gt;/rmarkdown/rmd/h/bootstrap</code></p></li>
+<li><p><code>rmarkdown.rstrap</code> is set to <code>TRUE</code> - this is useful for tests and demo (like this website)</p></li>
+</ul>
+</div>
+</div>
+<div id="limitations" class="section level1">
+<h1>Limitations</h1>
+<div id="theming-is-deactivated" class="section level2">
+<h2>Theming is deactivated</h2>
+<p>All theming behavior from R Markdown will be deactivated. Theming mainly use Bootswatch themes which are not including into <code>rstrap</code>.</p>
+<p>This means than <code>theme</code> argument in <code>html_document()</code> has been deactivated. A warning will be thrown once by R session:</p>
+<pre><code>## You will not see this message again in this R session. If you never want to see this message, you may set options(rmarkdown.rstrap.theme_warning = FALSE) in your .Rprofile.
+## Warning message:
+## `theme` is deactivated. Changing `theme` argument will have no effect.</code></pre>
+</div>
+<div id="other-r-markdown-format" class="section level2">
+<h2>Other R Markdown format</h2>
+<p><em>rstrap_mode</em> is aimed to be used with <code>html_document()</code> only. This can’t be used with other output formats.</p>
+</div>
+</div>
 
 
 
