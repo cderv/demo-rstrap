@@ -1,6 +1,6 @@
-name: "my-website"
+name: "rstrap-demo"
 navbar:
-  title: "My Website"
+  title: "rstrap Demo Website"
   left:
     - text: "About this demo website"
       href: index.html
