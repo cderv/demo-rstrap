@@ -21,3 +21,10 @@ If you wandered the web and stumble here instead of being pointed to this repo, 
 
 See the demo site to see how it looks like: https://cderv.github.io/demo-rstrap/ 
 
+## Building this website
+
+* We use `renv` for dependency management. `renv::restore()` will install every required dependencies
+* We use a `Makefile` to build the website. This allows to build the demo website using two different `html_document()` variations: 
+  * default `render_site()` happens while rstrap mode has been opt-in
+  * Reference page is build by opting-out rstrap mode to use the default Bootstrap 4 theming of `html_document()`. 
+* This website is built automatically using those 2 tools by a Github action workflow on every push to the main branch.
