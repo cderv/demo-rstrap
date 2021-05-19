@@ -98,6 +98,12 @@ DT::datatable(head(penguins, 50), class = 'cell-border stripe',
               caption = 'Table 2: Penguins data using DT')
 ```
 
+By default, in recent version of **DT**, `style = "auto"` - this means that DT will use Bootstrap styling by default only if **bslib** package is in use (Shiny Apps or Rmd document using **bslib**). Otherwise, it will use default [DataTable styling](https://datatables.net/manual/styling/classes). By setting `style = "default"`, this insure not Bootstrap related styling. 
+
+> **DT** does not come with Bootstrap, it assumes that it is available already on the page when `style = "bootstrap"` is used.
+
+This means that the table above will be different depending on which document you are viewing, the one with Bootstrap or the one with rstrap.
+
 ## Including Plots
 
 You can also embed plots, for example:
