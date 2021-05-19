@@ -90,10 +90,16 @@
     },
     "bslib": {
       "Package": "bslib",
-      "Version": "0.2.5",
-      "Source": "Repository",
+      "Version": "0.2.5.1",
+      "Source": "CRAN",
       "Repository": "CRAN",
-      "Hash": "e2049406d0e4f37de7b9f1a1a794eb8a"
+      "RemoteType": "standard",
+      "RemotePkgRef": "bslib",
+      "RemoteRef": "bslib",
+      "RemoteRepos": "https://cran.rstudio.com/",
+      "RemotePkgType": "windows",
+      "RemoteSha": "0.2.5.1",
+      "Hash": "2f069f3f42847231aef7baa49bed97b0"
     },
     "callr": {
       "Package": "callr",
@@ -511,12 +517,12 @@
       "Version": "0.1.0",
       "Source": "GitHub",
       "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "palmerpenguins",
       "RemoteUsername": "allisonhorst",
+      "RemoteRepo": "palmerpenguins",
       "RemoteRef": "master",
-      "RemoteSha": "0c96494e4355fbbad9891d63725e1ddb7e931d8c",
-      "Hash": "cc8b4330428d3ba3ad2a7ff85d2dd935"
+      "RemoteSha": "69530276d74b99df81cc385f4e95c644da69ebfa",
+      "RemoteHost": "api.github.com",
+      "Hash": "d76cd33c23654fcc5c78fc532f0a7ca1"
     },
     "pillar": {
       "Package": "pillar",
@@ -714,16 +720,16 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.31.6",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "tinytex",
-      "RemoteUsername": "yihui",
-      "RemotePkgRef": "yihui/tinytex",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "19526a859e388a07db23954ad14a2d7f666f5ed2",
-      "Hash": "91359dec8b5f08f890f1175ea02b24a8"
+      "Version": "0.31",
+      "Source": "CRAN",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "tinytex",
+      "RemoteRef": "tinytex",
+      "RemoteRepos": "https://cran.rstudio.com/",
+      "RemotePkgType": "windows",
+      "RemoteSha": "0.31",
+      "Hash": "25b572f764f3c19fef9aac33b5724f3d"
     },
     "utf8": {
       "Package": "utf8",
@@ -779,10 +785,16 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.22",
-      "Source": "Repository",
+      "Version": "0.23",
+      "Source": "CRAN",
       "Repository": "CRAN",
-      "Hash": "eab2f8ba53809c321813e72ecbbd19ba"
+      "RemoteType": "standard",
+      "RemotePkgRef": "xfun",
+      "RemoteRef": "xfun",
+      "RemoteRepos": "https://cran.rstudio.com/",
+      "RemotePkgType": "windows",
+      "RemoteSha": "0.23",
+      "Hash": "791a57f43c887111490851dcd166d344"
     },
     "yaml": {
       "Package": "yaml",
