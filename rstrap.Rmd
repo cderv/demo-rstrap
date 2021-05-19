@@ -161,17 +161,9 @@ $$
 
 With default rmarkdown document, Bootstrap special components can be defined directly as HTML. This is not available with rstrap mode in a lightweight version
 
-### Example with Buttons
-
-This will work in both modes
-
-```{r, echo = FALSE}
-htmltools::tags$button(type = "button", class = "btn btn-primary", "Primary")
-```
-
 ### Example with Alert
 
-This will `r if(rstrap_mode()) "not"` work. 
+This will `r if(rstrap_mode()) "not"` work as the Alert JS and CSS component are `r if(rstrap_mode()) "not"` including in `r if(rstrap_mode()) "rstrap" else "Bootstrap"`.
 
 ```{r, echo = FALSE}
 htmltools::div(class = "alert alert-primary", role = "alert", 
