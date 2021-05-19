@@ -6,6 +6,7 @@ output:
     code_folding: hide
     toc: true
     toc_float: true
+    anchor_sections: TRUE
 params:
   title: rstrap
 ---
@@ -78,6 +79,8 @@ This document source code is embedded in the HTML page and available using the C
 
 # Including a table
 
+## Using GT {#gt}
+
 This is a table using gt package
 
 ```{r gt-head, fig.cap="Table 1: penguins data using gt"}
@@ -90,6 +93,10 @@ penguins %>%
   tab_header(md("Head (10 rows) of _penguins_ dataset from **palmerpenguins**")) %>%
   tab_source_note(md("datasource: **palmerpinguins** R package."))
 ```
+
+<br>
+
+## Using DT {#dt-table}
 
 Another type of table is interactive HTML table like those with the package **DT**
 
