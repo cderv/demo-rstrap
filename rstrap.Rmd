@@ -78,7 +78,9 @@ This document source code is embedded in the HTML page and available using the C
 
 # Including a table
 
-```{r gt_head}
+This is a table using gt package
+
+```{r gt-head, fig.cap="Table 1: penguins data using gt"}
 library(palmerpenguins)
 library(gt)
 
@@ -89,6 +91,12 @@ penguins %>%
   tab_source_note(md("datasource: **palmerpinguins** R package."))
 ```
 
+Another type of table is interactive HTML table like those with the package **DT**
+
+```{r dt-table, echo = TRUE}
+DT::datatable(head(penguins, 50), class = 'cell-border stripe',
+              caption = 'Table 2: Penguins data using DT')
+```
 
 ## Including Plots
 
@@ -129,7 +137,7 @@ mass_flipper
 
 ### Table
 
-```{r gt_head, echo = FALSE}
+```{r gt-head, echo = FALSE}
 ```
 
 

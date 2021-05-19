@@ -14,4 +14,6 @@ build_one: rstrap.Rmd
 		-e 'rmarkdown::render("$<", output_file = "_site/boostrap.html", output_options = output_options, params = list(title = "boostrap"))'
 
 clean:
+	[[ -f "_LICENSE.md" ]] && mv _LICENSE.md LICENSE.md || true
 	Rscript -e 'rmarkdown::clean_site(preview = FALSE)'
+
