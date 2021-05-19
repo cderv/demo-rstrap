@@ -7,7 +7,7 @@ navbar:
     - text: "Example in rstrap mode"
       href: rstrap.html
     - text: "Using Bootstrap directly"
-      href: boostrap.html
+      href: bootstrap.html
 exclude:
   - Makefile
   - renv.lock

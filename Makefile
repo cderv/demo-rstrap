@@ -11,7 +11,7 @@ build_one: rstrap.Rmd
 	Rscript \
 		-e 'options(rmarkdown.rstrap = FALSE)' \
 		-e 'output_options = list(theme = list(version = 4), lib_dir = "_site/site_libs", self_contained = FALSE)' \
-		-e 'rmarkdown::render("$<", output_file = "_site/boostrap.html", output_options = output_options, params = list(title = "boostrap"))'
+		-e 'rmarkdown::render("$<", output_file = "_site/bootstrap.html", output_options = output_options, params = list(title = "bootstrap"))'
 
 clean:
 	[[ -f "_LICENSE.md" ]] && mv _LICENSE.md LICENSE.md || true
