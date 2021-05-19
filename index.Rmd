@@ -63,6 +63,9 @@ xfun::file_string(tmp)
 unlink(tmp)
 ```
 
+## R Markdown website not fully supported
+
+R Markdown website uses a lot of Bootstrap component and this is not fully supported with current lightweight _rstrap_ version. 
 
 ## Other R Markdown format
 
