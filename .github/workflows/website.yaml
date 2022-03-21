@@ -19,7 +19,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Cache Renv packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/Library/Application Support/renv
           key: r-${{ hashFiles('renv.lock') }}
